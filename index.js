@@ -1,6 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import pg from "pg";
 
 const app = express();
 const port = 3000;
@@ -8,9 +7,25 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.get("/", async (req, res) => {
-  res.render("index.ejs");
+app.get("/", (req, res) => {
+  res.render("homepage.ejs");
 });
+
+app.get("/login", (req, res) => {
+  res.render("login.ejs");
+});
+
+app.post("/check-login", (req, res) => {
+  console.log(req.body);
+})
+
+app.get("/register", (req, res) => {
+  res.render("register.ejs");
+});
+
+app.post("/check-register", (req, res) => {
+  console.log(req.body);
+})
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
