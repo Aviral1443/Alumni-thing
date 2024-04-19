@@ -1,21 +1,29 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
 
 import express from "express";
 import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-
+const firebaseConfig = {
+  apiKey: "AIzaSyApIj5vsg7mHvlFsXFQRSAbKwjX_sLFnFA",
+  authDomain: "bit-wizards.firebaseapp.com",
+  projectId: "bit-wizards",
+  storageBucket: "bit-wizards.appspot.com",
+  messagingSenderId: "851573876220",
+  appId: "1:851573876220:web:d7c398f50bc45456f4be79",
+  measurementId: "G-0Z5G3EXV79"
+};
 
 //const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("homepage.ejs");
+  res.render("index.ejs");
 });
 
 app.get("/login", (req, res) => {
@@ -33,6 +41,10 @@ app.get("/register", (req, res) => {
 app.post("/check-register", (req, res) => {
   console.log(req.body);
 })
+
+app.get("/home", (req, res) => {
+  res.render("homepage.ejs");
+});
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
