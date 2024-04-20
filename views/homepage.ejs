@@ -12,13 +12,25 @@
   <button id="logout-btn">Logout</button>
 
   <br><br>
+  <div class="imageUpload">
+    <input type="file" class="inp" onchange="getImageData(event)" />
+    <!-- <button onclick="selectImage()" class="selectImage">Select Images</button> -->
+    <span class="filedata"></span>
+    <div class="progressBar">
+      <div class="progress"></div>
+    </div>
+    <!-- <button onclick="uploadImage()" class="upload">Upload</button> -->
+    <!-- <span class="loading">Loading...</span> -->
+    <!-- <img class="img" /> -->
+  </div>
   <input type="text" id="content">
-  <button id="post-btn">Post</button>
+  <button id="post-btn" onclick="uploadImage()" class="upload">Post</button>
 
 
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-storage.js"></script>
   <script>
     // Initialize Firebase
     const firebaseConfig = {
@@ -30,14 +42,16 @@
       appId: "1:851573876220:web:d7c398f50bc45456f4be79",
       measurementId: "G-0Z5G3EXV79"
     };
-    firebase.initializeApp(firebaseConfig);
+    const app = firebase.initializeApp(firebaseConfig);
 
     // make auth and firestore references
     const auth = firebase.auth();
     const db = firebase.firestore();
+    db.settings({ timestampsInSnapshots: true });
+    const storage = firebase.storage();
 
     // update firestore settings
-    db.settings({ timestampsInSnapshots: true });
+    // db.settings({ timestampsInSnapshots: true });
   </script>
   <script src="./javascript/homepage.js">
   </script>

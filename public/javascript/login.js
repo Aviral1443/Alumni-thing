@@ -1,8 +1,9 @@
-document.getElementById("submit-btn").addEventListener("click", () => {
+document.getElementById("submit-btn").addEventListener("click", (e) => {
+  e.preventDefault();
   email = document.getElementById("email").value;
-  // console.log();
+  // console.log(email);
   password = document.getElementById("password").value;
-  // console.log(x);
+  // console.log(password);
 
   try {
     auth.signInWithEmailAndPassword(email, password).then((cred) => {

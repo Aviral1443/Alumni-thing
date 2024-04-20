@@ -16,6 +16,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
     name: name,
     year: year,
     role: option,
+    header: "",
     profile_link: ""
   });
 });
