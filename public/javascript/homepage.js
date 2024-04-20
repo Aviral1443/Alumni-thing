@@ -58,24 +58,24 @@ document.getElementById("logout-btn").addEventListener("click", () => {
   auth.signOut();
 });
 
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    userEmail = user.email; // Retrieve the email address
-    db.collection("users")
-      .where("email", "==", userEmail)
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          year = doc.data().year;
-          // console.log(year);
-        });
-      });
-    console.log("User logged in. Email address:", userEmail);
-  } else {
-    window.location.href = "/";
-    console.log("user logged out");
-  }
-});
+// auth.onAuthStateChanged((user) => {
+//   if (user) {
+//     userEmail = user.email; // Retrieve the email address
+//     db.collection("users")
+//       .where("email", "==", userEmail)
+//       .get()
+//       .then((snapshot) => {
+//         snapshot.docs.forEach((doc) => {
+//           year = doc.data().year;
+//           // console.log(year);
+//         });
+//       });
+//     console.log("User logged in. Email address:", userEmail);
+//   } else {
+//     window.location.href = "/";
+//     console.log("user logged out");
+//   }
+// });
 
 const inp = document.querySelector(".inp");
 const progressbar = document.querySelector(".progress");
