@@ -38,6 +38,11 @@ app.get("/register", (req, res) => {
   res.render("register.ejs");
 });
 
+app.post("/search", (req, res) => {
+  console.log(req.body);
+  res.render("search.ejs");
+});
+
 app.post("/check-register", (req, res) => {
   console.log(req.body);
 })

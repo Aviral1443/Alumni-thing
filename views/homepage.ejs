@@ -24,7 +24,12 @@
     <!-- <img class="img" /> -->
   </div>
   <input type="text" id="content">
-  <button id="post-btn" onclick="uploadImage()" class="upload">Post</button>
+  <button id="post-btn" class="upload">Post</button>
+  <form action="/search" method="post" >
+    <label for="year">Enter year</label>
+  <input type="number" min="2016" id="year" name="year"><br><br>
+  <input type="submit" value="Submit">
+  </form>
 
 
   <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
